@@ -1,5 +1,5 @@
 # Sticker Time Bot
-Telegram Link: [http://t.me/sticker_time_bot](http://t.me/sticker_time_bot)
+Telegram Link: [http://t.me/TG018bot](http://t.me/TG018bot)
 
 ## Introduction
 This is a [Telegram](https://telegram.org/) bot sending a sticker telling time every hour. You can start or stop any time using commands.
