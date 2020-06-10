@@ -1,33 +1,40 @@
-# This is a basic workflow to help you get started with Actions
+<？php
 
-name: CI
+定义（'BOT_TOKEN'，'903748315:AAGli3uu1ZLFQ4jcnqnkQk017l1p1faY-ZA）; 
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+函数 checkTelegramAuthorization（$ auth_data）{
+  $ check_hash = $ auth_data [ 'hash' ];
+  unset（$ auth_data [ 'hash' ]）;
+  $ data_check_arr = [];
+  foreach（$ auth_data  as  $ key => $ value）{
+    $ data_check_arr [] = $键。'='。$值 ;
+  }
+  排序（$ data_check_arr）;
+  $ data_check_string =爆破（ “ \ n”， $ data_check_arr）;
+  $ secret_key =哈希（ 'sha256'， BOT_TOKEN， true）;
+  $ hash = hash_hmac（ 'sha256'， $ data_check_string， $ secret_key）;
+  if（strcmp（$ hash，$ check_hash）！== 0）{
+    抛出 新的 异常（“数据不是来自电报”）；
+  }
+  如果（（time（）- $ auth_data [ 'auth_date' ]）> 86400）{
+    抛出 新 异常（“数据已过时”）；
+  }
+  返回 $ auth_data ;
+}
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+函数 saveTelegramUserData（$ auth_data）{
+  $ auth_data_json = json_encode（ $ auth_data）;
+  setcookie（'tg_user'，$ auth_data_json）;
+}
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
+尝试 {
+  $ auth_data = checkTelegramAuthorization（ $ _GET）;
+  saveTelegramUserData（$ auth_data）;
+} catch（例外 $ e）{
+  die（$ e- > getMessage（））;
+}
 
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+标头（“位置：login_example.php”）；
+
+？>
