@@ -1,4 +1,9 @@
-const config = require('./config');
+const config = require('./config');<script async src="https://telegram.org/js/telegram-widget.js?9" data-telegram-login="TG018bot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+<script type="text/javascript">
+  function onTelegramAuth(user) {
+    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+  }
+</script>
 const TelegramBot = require('node-telegram-bot-api');
 const { createLogger, format, transports } = require('winston');
 const { combine, timestamp, label, prettyPrint } = format;
