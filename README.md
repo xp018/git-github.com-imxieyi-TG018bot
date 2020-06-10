@@ -31,7 +31,7 @@ npm install
 Create a file config.json:
 ```json
 {
-    "tg_bot_token": "903748315:AAGli3uu1ZLFQ4jcnqnkQk017l1p1faY-ZA",
+    "tg_bot_token": “您的Telegram机器人令牌在这里”,
     "log_file": "Log file"
 }
 ```
