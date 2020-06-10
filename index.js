@@ -18,7 +18,7 @@ const logger = createLogger({
     ]
 });
 
-const token = config.903748315:AAGli3uu1ZLFQ4jcnqnkQk017l1p1faY-ZA;
+const token = 903748315:AAGli3uu1ZLFQ4jcnqnkQk017l1p1faY-ZA;
 
 const stickers = [
     'CAADBQAD8wADDxXNGeYW5EDuT_6aAg',
@@ -35,7 +35,7 @@ const stickers = [
     'CAADBQAD_gADDxXNGWuj_Z6psGN4Ag'
 ];
 
-const bot = new TelegramBot(token, 903748315:AAGli3uu1ZLFQ4jcnqnkQk017l1p1faY-ZA;
+const bot = new TelegramBot(903748315:AAGli3uu1ZLFQ4jcnqnkQk017l1p1faY-ZA);
 
 if (fs.existsSync('./data.json')) {
     var fdata = fs.readFileSync('./data.json', 'utf8');
